@@ -1,11 +1,14 @@
 Attribute VB_Name = "Module4"
 Option Explicit
+'受付用の料金計算を行うユーザーフォーム
 Sub calFrontValue()
     UserForm1.Show vbModeless
 End Sub
+'CASTへの支払い金額を計算するユーザーフォーム
 Sub showCastPayment()
     UserForm2.Show vbModal
 End Sub
+'行挿入する機能
 Sub insertRow()
     Dim targetRow As String
     
@@ -26,6 +29,7 @@ Sub insertRow()
     'シートの保護
     ActiveSheet.Protect Password:="042595"
 End Sub
+'顧客の電話番号を自動で入力する機能
 Sub enterCustomerNumber()
     '''''''''''''''''''''''''''''
     '''''''''''''''''ファイル定義
@@ -149,6 +153,7 @@ Sub enterCustomerNumber()
     'シートの保護
     ActiveSheet.Protect Password:="042595", AllowFiltering:=True
 End Sub
+'特定顧客の特定CASTを案内した履歴を簡易表示する機能
 Sub showHistory()
     '・・・変数定義・・・
     Dim inputSheet As Worksheet '入力シートを定義
@@ -210,9 +215,11 @@ Sub showHistory()
     
     MsgBox "会員番号【" & customerNumber & " 】の会員様、【" & castName & "】さんでの受付は、" & vbCrLf & "合計で【" & x & "】回です。" & vbCrLf & vbCrLf & "指名日付" & vbCrLf & stringHistory
 End Sub
+'電話番号入力ダイアログ_showHistory()用のfunctionプロシージャ
 Function customerNumberInput()
     customerNumberInput = InputBox("顧客の会員番号（登録電話番号）を入力してください。", "会員番号入力", "08012345678")
 End Function
+'源氏名入力ダイアログ_showHistory()用のfunctionプロシージャ
 Function castNameInput()
     castNameInput = InputBox("女の子の源氏名を入力してください。", "CAST名入力", "あつし")
 End Function
