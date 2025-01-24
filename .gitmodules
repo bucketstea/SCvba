@@ -1,0 +1,3 @@
+[submodule "顧客管理.xlsm"]
+	path = 顧客管理.xlsm
+	url = https://github.com/bucketstea/SCvba.git
