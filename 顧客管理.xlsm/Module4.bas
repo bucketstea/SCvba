@@ -1,142 +1,137 @@
-Attribute VB_Name = "Module4"
 Option Explicit
-'ó•t—p‚Ì—¿‹àŒvZ‚ğs‚¤ƒ†[ƒU[ƒtƒH[ƒ€
 Sub calFrontValue()
     UserForm1.Show vbModeless
 End Sub
-'CAST‚Ö‚Ìx•¥‚¢‹àŠz‚ğŒvZ‚·‚éƒ†[ƒU[ƒtƒH[ƒ€
 Sub showCastPayment()
     UserForm2.Show vbModal
 End Sub
-'s‘}“ü‚·‚é‹@”\
 Sub insertRow()
     Dim targetRow As String
     
-    targetRow = InputBox("‰½s–Ú‚É‘}“ü‚µ‚½‚¢‚Å‚·‚©H", "s‚Ì‘}“ü", "(—á:999)")
+    targetRow = InputBox("ä½•è¡Œç›®ã«æŒ¿å…¥ã—ãŸã„ã§ã™ã‹ï¼Ÿ", "è¡Œã®æŒ¿å…¥", "(ä¾‹:999)")
     If StrPtr(targetRow) = 0 Or targetRow = 0 Then
             Exit Sub
     End If
     
-    'ƒV[ƒg‚Ì•ÛŒì‰ğœ
+    'ã‚·ãƒ¼ãƒˆã®ä¿è­·è§£é™¤
     ActiveSheet.Unprotect Password:="042595"
     
-    ActiveWorkbook.Worksheets("“ü—ÍƒV[ƒg").Rows(targetRow - 1).Copy
-    ActiveWorkbook.Worksheets("“ü—ÍƒV[ƒg").Rows(targetRow).Insert
-    ActiveWorkbook.Worksheets("“ü—ÍƒV[ƒg").Rows(targetRow).PasteSpecial (xlPasteAll)
-    ActiveWorkbook.Worksheets("“ü—ÍƒV[ƒg").Cells(targetRow, 3).ClearContents
-    ActiveWorkbook.Worksheets("“ü—ÍƒV[ƒg").Range(Cells(targetRow, 5), Cells(targetRow, 22)).ClearContents
+    ActiveWorkbook.Worksheets("å…¥åŠ›ã‚·ãƒ¼ãƒˆ").Rows(targetRow - 1).Copy
+    ActiveWorkbook.Worksheets("å…¥åŠ›ã‚·ãƒ¼ãƒˆ").Rows(targetRow).Insert
+    ActiveWorkbook.Worksheets("å…¥åŠ›ã‚·ãƒ¼ãƒˆ").Rows(targetRow).PasteSpecial (xlPasteAll)
+    ActiveWorkbook.Worksheets("å…¥åŠ›ã‚·ãƒ¼ãƒˆ").Cells(targetRow, 3).ClearContents
+    ActiveWorkbook.Worksheets("å…¥åŠ›ã‚·ãƒ¼ãƒˆ").Range(Cells(targetRow, 5), Cells(targetRow, 22)).ClearContents
     
-    'ƒV[ƒg‚Ì•ÛŒì
+    'ã‚·ãƒ¼ãƒˆã®ä¿è­·
     ActiveSheet.Protect Password:="042595"
 End Sub
-'ŒÚ‹q‚Ì“d˜b”Ô†‚ğ©“®‚Å“ü—Í‚·‚é‹@”\
 Sub enterCustomerNumber()
     '''''''''''''''''''''''''''''
-    '''''''''''''''''ƒtƒ@ƒCƒ‹’è‹`
+    '''''''''''''''''ãƒ•ã‚¡ã‚¤ãƒ«å®šç¾©
     '''''''''''''''''''''''''''''
-'    Dim customerTablePath As Variant 'ƒtƒ@ƒCƒ‹ƒpƒXŠi”[—p•Ï”
-'    customerTablePath = "E:\ŒÚ‹qŠÇ—.xlsm"
-'    customerTablePath = "C:\Users\seifu\OneDrive\ƒhƒLƒ…ƒƒ“ƒg\”„ãƒf[ƒ^_230628\ŒÚ‹qŠÇ—.xlsm"
-'    Dim customerTable As Workbook 'ƒuƒbƒN‚ğ’è‹`
+'    Dim customerTablePath As Variant 'ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹æ ¼ç´ç”¨å¤‰æ•°
+'    customerTablePath = "E:\é¡§å®¢ç®¡ç†.xlsm"
+'    customerTablePath = "C:\Users\seifu\OneDrive\ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ\å£²ä¸Šãƒ‡ãƒ¼ã‚¿_230628\é¡§å®¢ç®¡ç†.xlsm"
+'    Dim customerTable As Workbook 'ãƒ–ãƒƒã‚¯ã‚’å®šç¾©
 '    Set customerTable = Workbooks.Open(customerTablePath)
-    Dim inputSheet As Worksheet '“ü—ÍƒV[ƒg‚ğ’è‹`
-    Set inputSheet = ActiveWorkbook.Worksheets("“ü—ÍƒV[ƒg")
-    Dim customerSheet As Worksheet '‰ïˆõˆê——ƒV[ƒg‚ğ’è‹`
-    Set customerSheet = ActiveWorkbook.Worksheets("‰ïˆõˆê——")
+    Dim inputSheet As Worksheet 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã‚’å®šç¾©
+    Set inputSheet = ActiveWorkbook.Worksheets("å…¥åŠ›ã‚·ãƒ¼ãƒˆ")
+    Dim customerSheet As Worksheet 'ä¼šå“¡ä¸€è¦§ã‚·ãƒ¼ãƒˆã‚’å®šç¾©
+    Set customerSheet = ActiveWorkbook.Worksheets("ä¼šå“¡ä¸€è¦§")
     
     '''''''''''''''''''''''''''''
-    '''''''''''''''''''ŠeÀ•W’è‹`
+    '''''''''''''''''''å„åº§æ¨™å®šç¾©
     '''''''''''''''''''''''''''''
-    Dim inputMediaColumn As Integer '“ü—ÍƒV[ƒgA”}‘Ì‚Ì—ñ”Ô†’è‹`
+    Dim inputMediaColumn As Integer 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã€åª’ä½“ã®åˆ—ç•ªå·å®šç¾©
     inputMediaColumn = 5
-    Dim inputNameColumn As Integer '“ü—ÍƒV[ƒgA‚¨‹q—l–¼‚Ì—ñ”Ô†’è‹`
+    Dim inputNameColumn As Integer 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã€ãŠå®¢æ§˜åã®åˆ—ç•ªå·å®šç¾©
     inputNameColumn = 8
-    Dim inputPhoneNumColumn As Integer '“ü—ÍƒV[ƒgA“d˜b”Ô†‚Ì—ñ”Ô†’è‹`
+    Dim inputPhoneNumColumn As Integer 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã€é›»è©±ç•ªå·ã®åˆ—ç•ªå·å®šç¾©
     inputPhoneNumColumn = 9
     
-    Dim customerNameColumn As Integer '‰ïˆõˆê——ƒV[ƒgA‰ïˆõ–¼‚Ì—ñ”Ô†’è‹`
+    Dim customerNameColumn As Integer 'ä¼šå“¡ä¸€è¦§ã‚·ãƒ¼ãƒˆã€ä¼šå“¡åã®åˆ—ç•ªå·å®šç¾©
     customerNameColumn = 2
-    Dim customerPhoneNumColumn As Integer '‰ïˆõˆê——ƒV[ƒgA“d˜b”Ô†‚Ì—ñ”Ô†’è‹`
+    Dim customerPhoneNumColumn As Integer 'ä¼šå“¡ä¸€è¦§ã‚·ãƒ¼ãƒˆã€é›»è©±ç•ªå·ã®åˆ—ç•ªå·å®šç¾©
     customerPhoneNumColumn = 3
     
     inputSheet.Activate
-    'ƒV[ƒg‚Ì•ÛŒì‰ğœ
+    'ã‚·ãƒ¼ãƒˆã®ä¿è­·è§£é™¤
     ActiveSheet.Unprotect Password:="042595"
     
     
     '''''''''''''''''''''''''''''
-    'ŠeƒV[ƒg‚ÌÅIs‚Ü‚Å‚Ì“à—e‚ğæ“¾‚·‚éB—ñ”ÍˆÍ‚Íã‚Å’è‹`‚µ‚½—ñ”Ô†‚ğg‚¤
+    'å„ã‚·ãƒ¼ãƒˆã®æœ€çµ‚è¡Œã¾ã§ã®å†…å®¹ã‚’å–å¾—ã™ã‚‹ã€‚åˆ—ç¯„å›²ã¯ä¸Šã§å®šç¾©ã—ãŸåˆ—ç•ªå·ã‚’ä½¿ã†
     '''''''''''''''''''''''''''''
     inputSheet.Activate
     Dim inputNameLastRow As Long
-    inputNameLastRow = Range("H1").CurrentRegion(Range("H1").CurrentRegion.Count).Row '“ü—ÍƒV[ƒgA‚¨‹q—l–¼—ñ‚ÌÅIs‚ğæ“¾
+    inputNameLastRow = Range("H1").CurrentRegion(Range("H1").CurrentRegion.Count).Row 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã€ãŠå®¢æ§˜ååˆ—ã®æœ€çµ‚è¡Œã‚’å–å¾—
     Dim inputArray
-    inputArray = Range(Cells(3, 1), Cells(inputNameLastRow, inputPhoneNumColumn)).Value '“ü—ÍƒV[ƒg‚Ì“à—e‚ğ”z—ñ‚Æ‚µ‚Äæ“¾
+    inputArray = Range(Cells(3, 1), Cells(inputNameLastRow, inputPhoneNumColumn)).Value 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã®å†…å®¹ã‚’é…åˆ—ã¨ã—ã¦å–å¾—
     
     customerSheet.Activate
     Dim customerNameLastRow As Long
-    customerNameLastRow = Range("B1").CurrentRegion(Range("B1").CurrentRegion.Count).Row '‰ïˆõˆê——ƒV[ƒgA‚¨‹q—l–¼—ñ‚ÌÅIs‚ğæ“¾
+    customerNameLastRow = Range("B1").CurrentRegion(Range("B1").CurrentRegion.Count).Row 'ä¼šå“¡ä¸€è¦§ã‚·ãƒ¼ãƒˆã€ãŠå®¢æ§˜ååˆ—ã®æœ€çµ‚è¡Œã‚’å–å¾—
     Dim customerArray
-    customerArray = Range(Cells(2, 1), Cells(customerNameLastRow, customerPhoneNumColumn)).Value '‰ïˆõˆê——ƒV[ƒg‚Ì“à—e‚ğ”z—ñ‚Æ‚µ‚Äæ“¾
+    customerArray = Range(Cells(2, 1), Cells(customerNameLastRow, customerPhoneNumColumn)).Value 'ä¼šå“¡ä¸€è¦§ã‚·ãƒ¼ãƒˆã®å†…å®¹ã‚’é…åˆ—ã¨ã—ã¦å–å¾—
     
     '''''''''''''''''''''''''''''
-    '“d˜b”Ô†ŒŸõ/‘‚«‚İˆ—
+    'é›»è©±ç•ªå·æ¤œç´¢/æ›¸ãè¾¼ã¿å‡¦ç†
     '''''''''''''''''''''''''''''
-    Dim i As Long '“ü—ÍƒV[ƒg,sƒJƒEƒ“ƒ^
-    Dim j As Long '‰ïˆõˆê——ƒV[ƒg,sƒJƒEƒ“ƒ^
-    Dim k As Long '“¯–¼ƒŠƒXƒg—p‚ÌForƒJƒEƒ“ƒ^
-    Dim nonNumName As Variant '“d˜b”Ô†‚ª–³‚¢‰ïˆõ‚Ì–¼‘OŠi”[—p•Ï”
-    Dim sameNameFlag As Integer '“¯–¼‘¶İƒtƒ‰ƒO
-    Dim sameNameNumberList As Variant '“¯–¼‰ïˆõ‚Ì”Ô†ƒŠƒXƒg
-    Dim sameNameNumberListStr As String '“¯–¼‰ïˆõ‚Ì‰º4Œ…ƒŠƒXƒg‚ğ•¶š—ñ‰»
+    Dim i As Long 'å…¥åŠ›ã‚·ãƒ¼ãƒˆ,è¡Œã‚«ã‚¦ãƒ³ã‚¿
+    Dim j As Long 'ä¼šå“¡ä¸€è¦§ã‚·ãƒ¼ãƒˆ,è¡Œã‚«ã‚¦ãƒ³ã‚¿
+    Dim k As Long 'åŒåãƒªã‚¹ãƒˆç”¨ã®Forã‚«ã‚¦ãƒ³ã‚¿
+    Dim nonNumName As Variant 'é›»è©±ç•ªå·ãŒç„¡ã„ä¼šå“¡ã®åå‰æ ¼ç´ç”¨å¤‰æ•°
+    Dim sameNameFlag As Integer 'åŒåå­˜åœ¨ãƒ•ãƒ©ã‚°
+    Dim sameNameNumberList As Variant 'åŒåä¼šå“¡ã®ç•ªå·ãƒªã‚¹ãƒˆ
+    Dim sameNameNumberListStr As String 'åŒåä¼šå“¡ã®ä¸‹4æ¡ãƒªã‚¹ãƒˆã‚’æ–‡å­—åˆ—åŒ–
     Dim underNum4 As Long
-    Dim underNum4SuccessFlag As Integer '‰º4Œ…“ü—Í‚ª¬Œ÷‚µ‚½ƒtƒ‰ƒO
+    Dim underNum4SuccessFlag As Integer 'ä¸‹4æ¡å…¥åŠ›ãŒæˆåŠŸã—ãŸãƒ•ãƒ©ã‚°
     
     inputSheet.Activate
-    For i = LBound(inputArray, 1) To UBound(inputArray, 1) '“ü—ÍƒV[ƒg‚Ì‘Ss‚ğ’²‚×‚é
-        If inputArray(i, inputMediaColumn) = "R" And inputArray(i, inputPhoneNumColumn) = "" Then '”}‘Ì‚ªRA‚©‚Â“d˜b”Ô†‚ª‚È‚¢
+    For i = LBound(inputArray, 1) To UBound(inputArray, 1) 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã®å…¨è¡Œã‚’èª¿ã¹ã‚‹
+        If inputArray(i, inputMediaColumn) = "R" And inputArray(i, inputPhoneNumColumn) = "" Then 'åª’ä½“ãŒRã€ã‹ã¤é›»è©±ç•ªå·ãŒãªã„
             Debug.Print (inputArray(i, inputNameColumn))
             sameNameFlag = 0
             ReDim sameNameNumberList(0)
-            nonNumName = inputArray(i, inputNameColumn) '“d˜b”Ô†‚Ì‚È‚¢‰ïˆõ‚Ì–¼‘O‚ğŠi”[
-            For j = LBound(customerArray, 1) To UBound(customerArray, 1) '‰ïˆõˆê——ƒV[ƒg‚Ì‘Ss‚ğ’²‚×‚é
-                If customerArray(j, customerNameColumn) = nonNumName Then 'ˆê’v‚·‚é‰ïˆõ–¼‚©‚Ç‚¤‚©
+            nonNumName = inputArray(i, inputNameColumn) 'é›»è©±ç•ªå·ã®ãªã„ä¼šå“¡ã®åå‰ã‚’æ ¼ç´
+            For j = LBound(customerArray, 1) To UBound(customerArray, 1) 'ä¼šå“¡ä¸€è¦§ã‚·ãƒ¼ãƒˆã®å…¨è¡Œã‚’èª¿ã¹ã‚‹
+                If customerArray(j, customerNameColumn) = nonNumName Then 'ä¸€è‡´ã™ã‚‹ä¼šå“¡åã‹ã©ã†ã‹
                     Debug.Print (customerArray(j, customerPhoneNumColumn))
-                    Cells(i + 2, inputPhoneNumColumn).Value = customerArray(j, customerPhoneNumColumn) '‰ïˆõ‚Ì“d˜b”Ô†‚ğƒZƒ‹‚É“ü—Í‚·‚é
+                    Cells(i + 2, inputPhoneNumColumn).Value = customerArray(j, customerPhoneNumColumn) 'ä¼šå“¡ã®é›»è©±ç•ªå·ã‚’ã‚»ãƒ«ã«å…¥åŠ›ã™ã‚‹
                     sameNameNumberList(sameNameFlag) = customerArray(j, customerPhoneNumColumn)
                     sameNameFlag = sameNameFlag + 1
                     ReDim Preserve sameNameNumberList(sameNameFlag)
                 End If
             Next j
-            '“¯–¼‘¶İ‚Ìˆ—
+            'åŒåå­˜åœ¨æ™‚ã®å‡¦ç†
             If sameNameFlag > 1 Then
                 
-                '‰º4Œ…“ü—Í‚Ì“ü—Í’l‚ª¬Œ÷‚·‚é‚Ü‚ÅŒJ‚è•Ô‚·
+                'ä¸‹4æ¡å…¥åŠ›æ™‚ã®å…¥åŠ›å€¤ãŒæˆåŠŸã™ã‚‹ã¾ã§ç¹°ã‚Šè¿”ã™
                 underNum4SuccessFlag = 0
                 Do While (underNum4SuccessFlag = 0)
-                    sameNameNumberListStr = nonNumName + "—l‚Í•¡”‚¢‚Ü‚·B³‚µ‚¢‰º4Œ…‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B"
-                    '“¯–¼ŒÚ‹q‚Ì‰º4Œ…‚ğ•À‚×‚½•¶š—ñ‚ğŒ`¬‚·‚éˆ—
+                    sameNameNumberListStr = nonNumName + "æ§˜ã¯è¤‡æ•°ã„ã¾ã™ã€‚æ­£ã—ã„ä¸‹4æ¡ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚"
+                    'åŒåé¡§å®¢ã®ä¸‹4æ¡ã‚’ä¸¦ã¹ãŸæ–‡å­—åˆ—ã‚’å½¢æˆã™ã‚‹å‡¦ç†
                     k = 0
                     For k = LBound(sameNameNumberList) To UBound(sameNameNumberList) - 1
-                        sameNameNumberListStr = sameNameNumberListStr + vbCrLf + "E" + Right(sameNameNumberList(k), 4)
+                        sameNameNumberListStr = sameNameNumberListStr + vbCrLf + "ãƒ»" + Right(sameNameNumberList(k), 4)
                     Next k
                     
-                    '“ü—Íƒ{ƒbƒNƒX•\¦‚µ‚ÄA“ü—Í’l‚ğó‚¯æ‚é
-                    underNum4 = Application.InputBox(Prompt:=sameNameNumberListStr, Title:="“¯–¼‚ÌŒÚ‹q‚ª•¡”‚¢‚Ü‚·B", Default:="0000")
+                    'å…¥åŠ›ãƒœãƒƒã‚¯ã‚¹è¡¨ç¤ºã—ã¦ã€å…¥åŠ›å€¤ã‚’å—ã‘å–ã‚‹
+                    underNum4 = Application.InputBox(Prompt:=sameNameNumberListStr, Title:="åŒåã®é¡§å®¢ãŒè¤‡æ•°ã„ã¾ã™ã€‚", Default:="0000")
                     
-                    '“ü—Í‚³‚ê‚½4Œ…‚ª“¯–¼ŒÚ‹q‚Ì”Ô†ƒŠƒXƒg‚É‚ ‚ê‚ÎƒZƒ‹‚É‘‚«‚Şˆ—
+                    'å…¥åŠ›ã•ã‚ŒãŸ4æ¡ãŒåŒåé¡§å®¢ã®ç•ªå·ãƒªã‚¹ãƒˆã«ã‚ã‚Œã°ã‚»ãƒ«ã«æ›¸ãè¾¼ã‚€å‡¦ç†
                     k = 0
                     For k = LBound(sameNameNumberList) To UBound(sameNameNumberList) - 1
                         If underNum4 = Right(sameNameNumberList(k), 4) Then
                             Cells(i + 2, inputPhoneNumColumn).Value = sameNameNumberList(k)
-                            underNum4SuccessFlag = 1 '“ü—Í’l‚ª‡‚Á‚Ä‚¢‚½‚½‚ßƒtƒ‰ƒO‚ğ—§‚Ä‚é
+                            underNum4SuccessFlag = 1 'å…¥åŠ›å€¤ãŒåˆã£ã¦ã„ãŸãŸã‚ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
                         End If
                     Next k
                     If underNum4SuccessFlag = 0 Then
-                        MsgBox "‚»‚Ì“ü—Í’l‚Í‡‚Á‚Ä‚¢‚Ü‚·‚©cH(’:‘SŠp‚ÍNG‚Å‚·)", vbExclamation
+                        MsgBox "ãã®å…¥åŠ›å€¤ã¯åˆã£ã¦ã„ã¾ã™ã‹â€¦ï¼Ÿ(æ³¨:å…¨è§’ã¯NGã§ã™)", vbExclamation
                     End If
                     If StrPtr(underNum4) = 0 Then
-                        MsgBox "ƒLƒƒƒ“ƒZƒ‹‚ªƒNƒŠƒbƒN‚³‚ê‚½‚½‚ß" + nonNumName + "—l‚Ì”Ô†‚ÍÈ—ª‚µ‚Ü‚·", vbExclamation
+                        MsgBox "ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸãŸã‚" + nonNumName + "æ§˜ã®ç•ªå·ã¯çœç•¥ã—ã¾ã™", vbExclamation
                         Cells(i + 2, inputPhoneNumColumn).ClearContents
                         Exit Do
                     End If
@@ -147,46 +142,45 @@ Sub enterCustomerNumber()
         End If
     Next i
     
-    'ÅIs‚ÌƒZƒ‹‚ğ‘I‘ğ‚·‚é(ƒXƒNƒŠƒvƒgÀsŒã‚É•\¦‚ª—‚ê‚éƒoƒO‘Îô)
+    'æœ€çµ‚è¡Œã®ã‚»ãƒ«ã‚’é¸æŠã™ã‚‹(ã‚¹ã‚¯ãƒªãƒ—ãƒˆå®Ÿè¡Œå¾Œã«è¡¨ç¤ºãŒä¹±ã‚Œã‚‹ãƒã‚°å¯¾ç­–)
     Cells(i, 3).Select
     
-    'ƒV[ƒg‚Ì•ÛŒì
+    'ã‚·ãƒ¼ãƒˆã®ä¿è­·
     ActiveSheet.Protect Password:="042595", AllowFiltering:=True
 End Sub
-'“Á’èŒÚ‹q‚Ì“Á’èCAST‚ğˆÄ“à‚µ‚½—š—ğ‚ğŠÈˆÕ•\¦‚·‚é‹@”\
 Sub showHistory()
-    'EEE•Ï”’è‹`EEE
-    Dim inputSheet As Worksheet '“ü—ÍƒV[ƒg‚ğ’è‹`
-    Set inputSheet = ActiveWorkbook.Worksheets("“ü—ÍƒV[ƒg")
+    'ãƒ»ãƒ»ãƒ»å¤‰æ•°å®šç¾©ãƒ»ãƒ»ãƒ»
+    Dim inputSheet As Worksheet 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã‚’å®šç¾©
+    Set inputSheet = ActiveWorkbook.Worksheets("å…¥åŠ›ã‚·ãƒ¼ãƒˆ")
     Dim customerSheet As Worksheet
-    Set customerSheet = ActiveWorkbook.Worksheets("‰ïˆõˆê——")
+    Set customerSheet = ActiveWorkbook.Worksheets("ä¼šå“¡ä¸€è¦§")
     
     inputSheet.Activate
     
-    '“ü—ÍƒV[ƒgŠi”[”z—ñ‚Ì’è‹`
+    'å…¥åŠ›ã‚·ãƒ¼ãƒˆæ ¼ç´é…åˆ—ã®å®šç¾©
     Dim customerLastRow As Long
-    customerLastRow = Cells(Rows.Count, 3).End(xlUp).Row '“ü—ÍƒV[ƒg‚ÌÅIs‚ğ’è‹`
+    customerLastRow = Cells(Rows.Count, 3).End(xlUp).Row 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã®æœ€çµ‚è¡Œã‚’å®šç¾©
     Dim customerLastColumn As Long
-    customerLastColumn = (Cells(1, Columns.Count).End(xlToLeft).Column) '“ü—ÍƒV[ƒg‚ÌÅI—ñ‚ğ’è‹`A1s–Úƒwƒbƒ_‚©‚ç
+    customerLastColumn = (Cells(1, Columns.Count).End(xlToLeft).Column) 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã®æœ€çµ‚åˆ—ã‚’å®šç¾©ã€1è¡Œç›®ãƒ˜ãƒƒãƒ€ã‹ã‚‰
     
     Dim inputDataArr As Variant
-    inputDataArr = Range(Cells(2, 1), Cells(customerLastRow, customerLastColumn)).Value '“ü—ÍƒV[ƒg‚Ì“à—e‚ğ‘Sæ“¾
+    inputDataArr = Range(Cells(2, 1), Cells(customerLastRow, customerLastColumn)).Value 'å…¥åŠ›ã‚·ãƒ¼ãƒˆã®å†…å®¹ã‚’å…¨å–å¾—
     
-    '—š—ğŠi”[”z—ñ‚Ì’è‹`
+    'å±¥æ­´æ ¼ç´é…åˆ—ã®å®šç¾©
     Dim castHistoryOnCustomerHistory As Variant
     ReDim castHistoryOnCustomerHistory(0)
     
     customerSheet.Activate
     
-    'ŒÚ‹q”Ô†‚Ì•Ï”éŒ¾AInputBoxŒÄ‚Ño‚µ
+    'é¡§å®¢ç•ªå·ã®å¤‰æ•°å®£è¨€ã€InputBoxå‘¼ã³å‡ºã—
     Dim customerNumber As String
     customerNumber = customerNumberInput
     
-    'ƒLƒƒƒXƒg–¼‚Ì•Ï”éŒ¾AInputBoxŒÄ‚Ño‚µ
+    'ã‚­ãƒ£ã‚¹ãƒˆåã®å¤‰æ•°å®£è¨€ã€InputBoxå‘¼ã³å‡ºã—
     Dim castName As String
     castName = castNameInput
     
-    'ó•tƒf[ƒ^‚ÉŒÚ‹q–¼‚ÆCast–¼‚ªˆê’v‚µ‚½‚çcastHistoryOnCustomerHistory‚É‘ã“ü‚·‚é
+    'å—ä»˜ãƒ‡ãƒ¼ã‚¿ã«é¡§å®¢åã¨CaståãŒä¸€è‡´ã—ãŸã‚‰castHistoryOnCustomerHistoryã«ä»£å…¥ã™ã‚‹
     Dim i As Long
     i = 0
     Dim x As Long
@@ -200,26 +194,44 @@ Sub showHistory()
         End If
     Next i
     
-    '—š—ğ‚ğ®Œ`‚µ‚Ä•¶š—ñ‰»i“Ç“_‚Ì‘}“üj
+    'å±¥æ­´ã‚’æ•´å½¢ã—ã¦æ–‡å­—åˆ—åŒ–ï¼ˆèª­ç‚¹ã®æŒ¿å…¥ï¼‰
     Dim stringHistory As String
     
     For i = LBound(castHistoryOnCustomerHistory) To UBound(castHistoryOnCustomerHistory)
         If i = LBound(castHistoryOnCustomerHistory) Then
             stringHistory = castHistoryOnCustomerHistory(i)
         ElseIf castHistoryOnCustomerHistory(i) <> Empty Then
-            stringHistory = stringHistory & "A" & castHistoryOnCustomerHistory(i)
+            stringHistory = stringHistory & "ã€" & castHistoryOnCustomerHistory(i)
         End If
     Next i
     
     customerSheet.Activate
     
-    MsgBox "‰ïˆõ”Ô†y" & customerNumber & " z‚Ì‰ïˆõ—lAy" & castName & "z‚³‚ñ‚Å‚Ìó•t‚ÍA" & vbCrLf & "‡Œv‚Åy" & x & "z‰ñ‚Å‚·B" & vbCrLf & vbCrLf & "w–¼“ú•t" & vbCrLf & stringHistory
+    MsgBox "ä¼šå“¡ç•ªå·ã€" & customerNumber & " ã€‘ã®ä¼šå“¡æ§˜ã€ã€" & castName & "ã€‘ã•ã‚“ã§ã®å—ä»˜ã¯ã€" & vbCrLf & "åˆè¨ˆã§ã€" & x & "ã€‘å›ã§ã™ã€‚" & vbCrLf & vbCrLf & "æŒ‡åæ—¥ä»˜" & vbCrLf & stringHistory
 End Sub
-'“d˜b”Ô†“ü—Íƒ_ƒCƒAƒƒO_showHistory()—p‚ÌfunctionƒvƒƒV[ƒWƒƒ
 Function customerNumberInput()
-    customerNumberInput = InputBox("ŒÚ‹q‚Ì‰ïˆõ”Ô†i“o˜^“d˜b”Ô†j‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B", "‰ïˆõ”Ô†“ü—Í", "08012345678")
+    customerNumberInput = InputBox("é¡§å®¢ã®ä¼šå“¡ç•ªå·ï¼ˆç™»éŒ²é›»è©±ç•ªå·ï¼‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚", "ä¼šå“¡ç•ªå·å…¥åŠ›", "08012345678")
 End Function
-'Œ¹–¼“ü—Íƒ_ƒCƒAƒƒO_showHistory()—p‚ÌfunctionƒvƒƒV[ƒWƒƒ
 Function castNameInput()
-    castNameInput = InputBox("—‚Ìq‚ÌŒ¹–¼‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B", "CAST–¼“ü—Í", "‚ ‚Â‚µ")
+    castNameInput = InputBox("å¥³ã®å­ã®æºæ°åã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚", "CASTåå…¥åŠ›", "ã‚ã¤ã—")
 End Function
+Public Sub CloseNewWindow()
+'    ' æ–°ã—ãé–‹ã„ãŸã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒå­˜åœ¨ã™ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
+'    If newWinName <> "" Then
+'        Dim win As Window
+'
+'        ' ã™ã¹ã¦ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç¢ºèªã—ã¦ã€è©²å½“ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã¿ã‚’é–‰ã˜ã‚‹
+'        For Each win In Application.Windows
+'            If win.Caption = newWinName Then
+'                win.Close
+'                Exit For
+'            End If
+'        Next win
+'
+'        ' ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã‚’ã‚¯ãƒªã‚¢
+'        newWinName = ""
+'    End If
+End Sub
+
+
+-
