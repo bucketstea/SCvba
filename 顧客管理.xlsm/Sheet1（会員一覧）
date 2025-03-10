@@ -1,0 +1,70 @@
+Private Sub Worksheet_BeforeDoubleClick(ByVal Target As Range, Cancel As Boolean)
+'
+'    'clickしたセル座標を取得
+'    Dim clickCol As Long
+'    Dim clickRow As Long
+'
+'    clickCol = Target.Column
+'    clickRow = Target.Row
+'
+'    'clickした顧客情報を取得
+'    Dim clickCustomerName As String
+'    Dim clickCustomerNumber As String
+'
+'    clickCustomerName = Cells(clickRow, 2).Value
+'    clickCustomerNumber = Cells(clickRow, 3).Value
+'
+'    '2列目、3列目（お客様名、電話番号）をダブルクリックしたら起動
+'    If clickCol = 2 Or clickCol = 3 Then
+'        'ダブルクリック時の編集をキャンセル
+'        Cancel = True
+'
+'        'ウインドウを新しく開く
+'        Dim newWin As Window
+'        Set newWin = ThisWorkbook.NewWindow
+'        newWinName = newWin.Caption
+'
+'        Dim winWidth As Long
+'        Dim winHeight As Long
+'        Dim screenWidth As Long
+'        Dim screenHeight As Long
+'
+'        winWidth = 1000
+'        winHeight = 500
+'        screenWidth = Application.UsableWidth
+'        screenHeight = Application.UsableHeight
+'
+'        With ActiveWindow
+'            .WindowState = xlNormal
+'            .Width = 1000
+'            .Height = 600
+'            .Top = (screenHeight - winHeight) / 2
+'            .Left = (screenWidth - winWidth) / 2
+'        End With
+'
+'        Dim inputSheet As Worksheet '入力シートを定義
+'        Set inputSheet = ActiveWorkbook.Worksheets("入力シート")
+'        Dim newInputSheet As Worksheet
+'        Set newInputSheet = ThisWorkbook.Sheets.Add(after:=ThisWorkbook.Sheets(ThisWorkbook.Sheets.Count))
+'        newInputSheet.Name = "TempFilterSheet"
+'
+'        inputSheet.Cells.Copy
+'        newInputSheet.Cells.PasteSpecial Paste:=xlpastvalues
+'        Application.CutCopyMode = False
+'
+'        newInputSheet.Activate
+'
+'        'シートの保護解除
+'        ActiveSheet.Unprotect Password:="042595"
+'
+'        '当該顧客をフィルタリング
+'        inputSheet.Cells(1, 1).AutoFilter 8, clickCustomerName
+'        inputSheet.Cells(1, 1).AutoFilter 9, clickCustomerNumber
+'
+''        '自動的に閉じる（放置して開きすぎを防ぐため）
+''        closeTime = Now + TimeValue("00:00:05")
+''        Application.OnTime closeTime, "CloseNewWindow"
+'
+'    End If
+End Sub
+
